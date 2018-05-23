@@ -1,20 +1,39 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+    <form class="form-group">
+      <label>Name:</label>
+      <input class="input">
+      <button type="button" (click)="resetSearchParam()" class = "btn btn-primary"> Reset </button>
+    </form>
+
+<div>
+  <tabset>
+    <tab heading="First Tab">
+      <table>
+        <thead>
+          <tr>
+            <th class="fix-width">Name</th>
+            <th class="fix-width">Age</th>
+            <th class="fix-width">Address</th>
+            <th class="fix-width">Phone Number</th>
+            <th class="fix-width">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let profile of profiles" class="fix-width">
+            <td class="fix-width">{{profile.name}}</td>
+            <td class="fix-width">{{profile.age}}</td>
+            <td class="fix-width">{{profile.address}}</td>
+            <td class="fix-width">{{profile.phone}}</td>
+            <td class="fix-width">{{profile.email}}</td>
+          </tr>
+        </tbody>
+        <pagination id="serviceGroup" [boundaryLinks]="true" [totalItems]="totalItems" [rotate]="true" (pageChanged)="getAll($event)" [itemsPerPage]="size"
+        [maxSize]="5" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+        </pagination>
+      </table>
+    </tab>
+    <tab heading="Second Tab">
+
+    </tab>
+  </tabset>
+</div>
