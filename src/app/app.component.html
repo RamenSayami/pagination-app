@@ -19,7 +19,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let profile of profiles" class="fix-width">
+          <tr *ngFor="let profile of profiles" >
             <td class="fix-width">{{profile.name}}</td>
             <td class="fix-width">{{profile.age}}</td>
             <td class="fix-width">{{profile.address}}</td>
@@ -27,10 +27,10 @@
             <td class="fix-width">{{profile.email}}</td>
           </tr>
         </tbody>
-        <pagination id="serviceGroup" [boundaryLinks]="true" [totalItems]="totalItems" [rotate]="true" (pageChanged)="getAll($event)" [itemsPerPage]="size"
-        [maxSize]="5" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
-        </pagination>
       </table>
+      <pagination [boundaryLinks]="true"[rotate]="true" (pageChanged)="pageChanged($event)" [itemsPerPage]="size"
+        [totalItems]="totalItems" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+      </pagination>
     </tab>
     <tab heading="Second Tab">
 

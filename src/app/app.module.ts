@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { TabsModule } from '../../node_modules/ngx-bootstrap';
+import { TabsModule, PaginationModule } from '../../node_modules/ngx-bootstrap';
 import { AppComponent } from './app.component';
 
 
@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
+    PaginationModule.forRoot(),
     BrowserModule,
     TabsModule.forRoot(),
   ],
@@ -17,3 +18,4 @@ import { AppComponent } from './app.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
