@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Profile } from './profile';
 import { PageChangedEvent, PaginationComponent } from 'ngx-bootstrap';
 import { ProfileList } from './profile-list';
@@ -15,9 +15,9 @@ export class AppComponent implements OnInit {
   totalItems: number;
   profileList: ProfileList;
   profiles: Profile[];
-
+  @ViewChild(PaginationComponent) paginationComponent: PaginationComponent;
   resetSearchParam() {
-    // some reset code here
+    this.paginationComponent.selectPage(1);
   }
 
   pageChanged(event: PageChangedEvent) {
