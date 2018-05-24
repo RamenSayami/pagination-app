@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   page: number;
   size: number;
   totalItems: number;
-  profileList: ProfileList = new ProfileList();
+  profileList: ProfileList;
   profiles: Profile[];
 
   resetSearchParam() {
@@ -21,18 +21,25 @@ export class AppComponent implements OnInit {
   }
 
   pageChanged(event: PageChangedEvent) {
-    // event:
-    // if (event) {
-    //   this.
-    // } else {
-
-    // }
+    console.log('Page Change Event: [Page:' + event.page + ', Size:' + event.itemsPerPage);
+    if (event) {
+      this.page = event.page;
+      this.profiles = this.profileList.getDisplayLists(event.page, event.itemsPerPage);
+    } else {
+      this.page = 1;
+      this.profiles = this.profileList.getDisplayLists(this.page, this.size);
+    }
+    console.log('Page Changed: ' + this.profiles);
   }
   ngOnInit() {
+    this.profileList = new ProfileList();
     this.page = 1;
+    this.size = 5;
     this.profiles = this.profileList.getDisplayLists(this.page, this.size);
-    this.totalItems = this.profiles.length;
-    this.size = 3;
+
+    console.log('New profile list: ' + this.profileList.profiles);
+    console.log('Initial data: ' + this.profiles);
+    this.totalItems = this.profileList.profiles.length;
 
   }
 

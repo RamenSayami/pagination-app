@@ -33,7 +33,29 @@
       </pagination>
     </tab>
     <tab heading="Second Tab">
-
+      <table>
+        <thead>
+          <tr>
+            <th class="fix-width">Name</th>
+            <th class="fix-width">Age</th>
+            <th class="fix-width">Address</th>
+            <th class="fix-width">Phone Number</th>
+            <th class="fix-width">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let profile of profiles" >
+            <td class="fix-width">{{profile.name}}</td>
+            <td class="fix-width">{{profile.age}}</td>
+            <td class="fix-width">{{profile.address}}</td>
+            <td class="fix-width">{{profile.phone}}</td>
+            <td class="fix-width">{{profile.email}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <pagination [boundaryLinks]="true"[rotate]="true" (pageChanged)="pageChanged($event)" [itemsPerPage]="size"
+        [totalItems]="totalItems" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+      </pagination>
     </tab>
   </tabset>
 </div>
